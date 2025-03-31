@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 body.innerHTML = `
-  <div id="title"><h1>Etch-a-Sketch</h1><button id="set-btn">Set</button>
+  <div id="title"><h1>Etch-a-Sketch</h1><button id="set-btn">Set</button><button id="reset-btn">Reset</button>
   </div>
   <div id="container"></div>
 `;
@@ -9,8 +9,11 @@ body.classList.add("wrapper");
 const container = document.getElementById("container");
 container.classList.add("container");
 
-const button = document.getElementById("set-btn");
-button.classList.add("btn");
+const setBtn = document.getElementById("set-btn");
+setBtn.classList.add("btn");
+
+const resetBtn = document.getElementById("reset-btn");
+resetBtn.classList.add("btn");
 
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
@@ -40,26 +43,36 @@ function divGrid(n) {
       pixel.style.backgroundColor = getRandomColor();
     });
 
-    pixel.addEventListener("mouseout", () => {
-      setTimeout(() => {
-        pixel.style.backgroundColor = "white";
-      }, n * 5);
-    });
-
     container.appendChild(pixel);
   }
 }
 
-button.addEventListener("click", () => {
-  let n = prompt("Enter the number of rows (1-250)");
+setBtn.addEventListener("click", () => {
+  setBtn.style.backgroundColor = "whitesmoke";
 
-  n = parseInt(n);
-  if (isNaN(n) || n < 1 || n > 250) {
-    alert("Please enter a number between 1 and 250");
-    return;
-  }
+  setTimeout(() => {
+    setBtn.style.backgroundColor = "white";
+  }, 50);
 
-  divGrid(n);
+  setTimeout(function () {
+    let n = prompt("Enter the number of rows (1-250)");
+
+    n = parseInt(n);
+    if (isNaN(n) || n < 1 || n > 250) {
+      alert("Please enter a number between 1 and 250");
+      divGrid(16);
+      return;
+    }
+
+    divGrid(n);
+  }, 200);
+});
+
+resetBtn.addEventListener("click", () => {
+  const pixels = document.querySelectorAll(".pixel");
+  pixels.forEach((pixel) => {
+    pixel.style.backgroundColor = "white";
+  });
 });
 
 divGrid(16);

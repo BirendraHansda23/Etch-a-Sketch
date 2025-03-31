@@ -16,6 +16,8 @@
 }
 
 #title {
+  display: flex;
+  flex-direction: column;
   padding: auto;
   font-family: "Pixelify Sans", sans-serif;
   font-size: large;
