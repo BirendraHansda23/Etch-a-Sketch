@@ -52,7 +52,7 @@ setBtn.addEventListener("click", () => {
 
   setTimeout(() => {
     setBtn.style.backgroundColor = "white";
-  }, 50);
+  }, 100);
 
   setTimeout(function () {
     let n = prompt("Enter the number of rows (1-250)");
@@ -69,6 +69,12 @@ setBtn.addEventListener("click", () => {
 });
 
 resetBtn.addEventListener("click", () => {
+  resetBtn.style.backgroundColor = "whitesmoke";
+
+  setTimeout(() => {
+    resetBtn.style.backgroundColor = "white";
+  }, 100);
+
   const pixels = document.querySelectorAll(".pixel");
   pixels.forEach((pixel) => {
     pixel.style.backgroundColor = "white";
