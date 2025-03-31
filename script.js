@@ -1,6 +1,7 @@
 const body = document.querySelector("body");
 body.innerHTML = `
-  <div id="title"><h1>Etch-a-Sketch</h1><button id="set-btn">Set</button></div>
+  <div id="title"><h1>Etch-a-Sketch</h1><button id="set-btn">Set</button>
+  </div>
   <div id="container"></div>
 `;
 body.classList.add("wrapper");
@@ -50,11 +51,11 @@ function divGrid(n) {
 }
 
 button.addEventListener("click", () => {
-  let n = prompt("Enter the number of rows (1-500)");
+  let n = prompt("Enter the number of rows (1-250)");
 
   n = parseInt(n);
-  if (isNaN(n) || n < 1 || n > 500) {
-    alert("Please enter a number between 1 and 500");
+  if (isNaN(n) || n < 1 || n > 250) {
+    alert("Please enter a number between 1 and 250");
     return;
   }
 
