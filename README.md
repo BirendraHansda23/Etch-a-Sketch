@@ -42,7 +42,3 @@ To run locally:
 1. Clone this repository
 2. Open `index.html` in your browser
 3. Start drawing!
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
